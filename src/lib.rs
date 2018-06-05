@@ -1,4 +1,3 @@
-#![feature(match_default_bindings)]
 //! Crate to write an ascii tree.
 //! 
 //! ```rust
@@ -95,8 +94,8 @@ fn write_tree_element(f: &mut Write, tree: &Tree, level: &Vec<usize>) -> fmt::Re
         Leaf(lines) => {
             for (i, s) in lines.iter().enumerate() {
                 match i {
-                    0 => write!(f, " {}\n", s)?,
-                    _ => write!(f, "{} {}\n", second_line, s)?
+                    0 => writeln!(f, " {}", s)?,
+                    _ => writeln!(f, "{} {}", second_line, s)?
                 }
             }
         }
